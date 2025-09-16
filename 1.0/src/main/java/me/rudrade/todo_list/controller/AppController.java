@@ -1,0 +1,16 @@
+package me.rudrade.todo_list.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class AppController {
+    
+    @GetMapping
+    public String test() {
+        return  "app";
+    }
+
+}
