@@ -1,0 +1,11 @@
+<div th:fragment="list-task">
+    <h3>To-do list</h3>
+    <br>
+    <table class="table table-hover table-borderless ">
+        <tbody>
+            <tr th:each="task : ${tasks}">
+                <td th:text="${task.description}"/>
+            </tr>
+        </tbody>
+    </table>
+</div>

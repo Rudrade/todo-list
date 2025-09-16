@@ -6,5 +6,6 @@ Project made to learn and improve in certain Java tecnologies.
 
 This version includes the following tecnologies:
     * Spring Web
-    * Thymeleaf
     * MongoDB
+    * Thymeleaf
+    * Bootstrap
