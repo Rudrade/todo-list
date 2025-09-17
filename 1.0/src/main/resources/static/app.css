@@ -1,0 +1,32 @@
+.new-task {
+    color: #7d7a72;
+    padding-left: 5%;
+    font-weight: 600;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#task {
+    background-color: #e9e7e2;
+    position: absolute;
+    width: 30%;
+    height: 50%;
+    padding: 1%;
+    top: 40;
+    border-radius: 10px;
+}
+
+#task input {
+    background-color: #e9e7e2;
+}
+
+#task textarea {
+    background-color: #e9e7e2;
+}
+
+#task-save {
+    float: right;
+    margin-top: 100%;
+}

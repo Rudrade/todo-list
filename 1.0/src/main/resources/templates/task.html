@@ -1,0 +1,18 @@
+<div id="task" th:style="${task.id != null ? 'visibility: visible' : 'visibility: hidden'}">
+    <div style="overflow: hidden;">
+        <h2 style="float:left">Task:</h2>
+        <i style="float:right" class="bi bi-x-lg" onclick="closeTask()"></i>
+    </div>
+    <br>
+    <form th:action="@{/}" th:object="${task}" method="post" id="task-form">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="task-name" placeholder="Name" th:field="*{name}" autocomplete="off">
+            <label for="task-name">Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <textarea type="text" class="form-control" id="task-description" placeholder="Description" th:field="*{description}" autocomplete="off"></textarea>
+            <label for="task-description">Description</label>
+        </div>
+        <button type="submit" class="btn btn-warning" id="task-save">Save Changes</button>
+    </form>
+</div>
