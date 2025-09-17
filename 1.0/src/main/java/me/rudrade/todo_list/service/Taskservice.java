@@ -19,10 +19,6 @@ public class Taskservice {
         return respository.findAll();
     }
 
-    public Task create(Task task) {
-        return respository.insert(task);
-    }
-
     public void delete(String id) {
         respository.deleteById(id);
     }
