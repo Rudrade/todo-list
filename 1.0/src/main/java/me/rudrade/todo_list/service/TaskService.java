@@ -9,12 +9,11 @@ import me.rudrade.todo_list.model.Task;
 import me.rudrade.todo_list.repository.TaskRespository;
 
 @Service
-public class Taskservice {
+public class TaskService {
 
-    @Autowired
+	@Autowired
     private TaskRespository respository;
     
-
     public List<Task> getAll() {
         return respository.findAll();
     }
@@ -25,5 +24,9 @@ public class Taskservice {
 
     public Task save(Task task) {
         return respository.save(task);
+    }
+    
+    public Task getById(String id) {
+        return respository.findById(id).get();
     }
 }
