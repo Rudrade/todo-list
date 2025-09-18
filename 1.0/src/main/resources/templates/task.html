@@ -4,15 +4,17 @@
         <i style="float:right" class="bi bi-x-lg" onclick="closeTask()"></i>
     </div>
     <br>
-    <form th:action="@{/}" th:object="${task}" method="post" id="task-form">
+    <form th:action="@{/save}" th:object="${task}" method="post" id="task-form">
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="task-name" placeholder="Name" th:field="*{name}" autocomplete="off">
+            <input type="text" class="form-control" id="task-name" placeholder="Name" th:field="*{name}" autocomplete="off" required>
             <label for="task-name">Name</label>
         </div>
         <div class="form-floating mb-3">
             <textarea type="text" class="form-control" id="task-description" placeholder="Description" th:field="*{description}" autocomplete="off"></textarea>
             <label for="task-description">Description</label>
         </div>
+
         <button type="submit" class="btn btn-warning" id="task-save">Save Changes</button>
+        <a class="btn btn-danger" id="task-delete" th:if="*{id != null}" th:href="@{/delete/{id}(id=*{id})}">Delete Task</a>
     </form>
 </div>
