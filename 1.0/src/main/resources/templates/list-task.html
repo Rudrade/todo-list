@@ -7,8 +7,12 @@
                 <td onclick="openNewTask()"><i class="bi bi-plus-lg"></i><span class="new-task">Add New Task</span></td>
             </tr>
             <tr th:each="task :${tasks}">
-                <td>
-                    <a th:href="@{/detail/{id}(id=${task.id})}" th:text="${task.name}"/>
+                <td th:onclick="openTaskDetail([[${task.id}]])">
+                    <input type="checkbox" th:onclick="completeTask([[${task.id}]])" th:checked="${task.completed}">
+                    <span
+                        th:text="${task.name}"
+                        th:id="'task-'+${task.id}"
+                        th:style="${task.completed ? 'text-decoration: line-through' : 'text-decoration: none'}" />
                 </td>
             </tr>
         </tbody>
