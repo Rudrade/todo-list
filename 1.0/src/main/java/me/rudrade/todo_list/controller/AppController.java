@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import me.rudrade.todo_list.model.Task;
@@ -48,10 +49,9 @@ public class AppController {
     }
 
     @GetMapping("/detail/{id}")
-    public String getTask(@PathVariable("id") String id, RedirectAttributes  redirectAttributes) {
-        redirectAttributes.addFlashAttribute("task", taskService.getById(id));
-
-        return "redirect:/";
+    @ResponseBody
+    public Task getTask(@PathVariable("id") String id) {
+        return taskService.getById(id);
     }
 
 }

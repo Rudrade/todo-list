@@ -1,6 +1,7 @@
 package me.rudrade.todo_list.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,15 @@ public class TaskService {
     
     public Task getById(String id) {
         return respository.findById(id).get();
+    }
+
+    public void changeTaskCompletion(String id) {
+        Optional<Task> optTask = respository.findById(id);
+        if (optTask.isEmpty())
+            return;
+
+        Task task = optTask.get();
+        task.setCompleted(!task.isCompleted());
+        respository.save(task);
     }
 }
