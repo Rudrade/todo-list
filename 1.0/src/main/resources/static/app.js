@@ -4,7 +4,7 @@ function openNewTask() {
     // Clear form fields
     document.getElementById("task-name").value = null;
     document.getElementById("task-description").value = null;
-    document.getElementById("task-id").value = null;
+    document.getElementById("task-id").remove();
 }
 
 function closeTask() {
