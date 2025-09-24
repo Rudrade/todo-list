@@ -5,6 +5,7 @@
     </div>
     <br>
     <form th:action="@{/save}" th:object="${task}" method="post" id="task-form">
+        <input type="hidden" id="task-id" th:field="*{id}" th:if="*{id != null}">
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="task-name" placeholder="Name" th:field="*{name}" autocomplete="off" required>
             <label for="task-name">Name</label>
