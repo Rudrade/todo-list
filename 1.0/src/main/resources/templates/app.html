@@ -13,9 +13,9 @@
     <body>
         <div class="container" style="padding: 1.5%;">
             <div class="row align-items-center">
-                <div class="col"></div>
+                <div class="col" th:insert="~{menu}" />
                 <div class="col" th:insert="~{list-task}"/>
-                <div class="col" th:insert="~{task}"></div>
+                <div class="col" th:insert="~{task}" />
             </div>
         </div>
 

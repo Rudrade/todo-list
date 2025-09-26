@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import me.rudrade.todo_list.model.Task;
 import me.rudrade.todo_list.repository.TaskRespository;
+import me.rudrade.todo_list.service.filter.TaskListFilter;
 
 @Service
 public class TaskService {
@@ -15,7 +16,14 @@ public class TaskService {
 	@Autowired
     private TaskRespository respository;
     
-    public List<Task> getAll() {
+    public List<Task> getAll(TaskListFilter filter, String text) {
+        if (TaskListFilter.COMPLETED.equals(filter)) {
+            return respository.findAllCompleted();
+        
+        } else if (TaskListFilter.SEARCH.equals(filter)) {
+            return respository.findByName(text);
+        }
+
         return respository.findAll();
     }
 
