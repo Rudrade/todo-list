@@ -1,5 +1,6 @@
 package me.rudrade.todo_list.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +23,9 @@ public class TaskService {
         
         } else if (TaskListFilter.SEARCH.equals(filter)) {
             return respository.findByName(text);
+        
+        } else if (TaskListFilter.TODAY.equals(filter)) {
+        	return respository.findByDueDate(LocalDate.now(), LocalDate.now().plusDays(1));
         }
 
         return respository.findAll();
@@ -36,7 +40,7 @@ public class TaskService {
     }
     
     public Task getById(String id) {
-        return respository.findById(id).get();
+        return respository.findById(id).orElse(null);
     }
 
     public void changeTaskCompletion(String id) {

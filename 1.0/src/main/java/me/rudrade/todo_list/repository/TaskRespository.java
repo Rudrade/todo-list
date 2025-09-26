@@ -1,5 +1,6 @@
 package me.rudrade.todo_list.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -14,5 +15,8 @@ public interface TaskRespository extends MongoRepository<Task, String> {
 
     @Query("{ 'name' : ?0 }")
     List<Task> findByName(String name);
+    
+    @Query("{ 'dueDate' : {'$gte' : ?0, $lt : ?1} }")
+    List<Task> findByDueDate(LocalDate dtStart, LocalDate dtEnd);
 
 }

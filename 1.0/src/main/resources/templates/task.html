@@ -8,11 +8,17 @@
         <input type="hidden" id="task-id" th:field="*{id}" th:if="*{id != null}">
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="task-name" placeholder="Name" th:field="*{name}" autocomplete="off" required>
-            <label for="task-name">Name</label>
+            <label for="task-name">Name *</label>
         </div>
+        
         <div class="form-floating mb-3">
-            <textarea type="text" class="form-control" id="task-description" placeholder="Description" th:field="*{description}" autocomplete="off"></textarea>
+            <textarea class="form-control" id="task-description" placeholder="Description" th:field="*{description}" autocomplete="off"></textarea>
             <label for="task-description">Description</label>
+        </div>
+        
+        <div class="form-floating mb-3">
+        	<input id="task-dueDate" class="form-control" type="date" placeholder="Due Date" th:field="*{dueDate}"/>
+        	<label for="task-dueDate">Due Date</label>
         </div>
 
         <button type="submit" class="btn btn-warning" id="task-save">Save Changes</button>

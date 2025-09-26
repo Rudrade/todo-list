@@ -1,5 +1,7 @@
 package me.rudrade.todo_list.model;
 
+import java.time.LocalDate;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -21,4 +23,6 @@ public class Task {
     private String description;
     
     private boolean completed;
+    
+    private LocalDate dueDate;
 }
