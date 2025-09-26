@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import me.rudrade.todo_list.model.Task;
 import me.rudrade.todo_list.service.TaskService;
+import me.rudrade.todo_list.service.filter.TaskListFilter;
 
 @Controller
 @RequestMapping
@@ -22,9 +24,11 @@ public class AppController {
     private TaskService taskService;
 
     @GetMapping("/")
-    public String listTasks(Model model) {
+    public String listTasks(Model model,
+        @RequestParam(name = "filter", required = false) TaskListFilter filter,
+        @RequestParam(name = "search", required = false) String searchText) {
         
-        model.addAttribute("tasks", taskService.getAll());
+        model.addAttribute("tasks", taskService.getAll(filter, searchText));
 
         if (model.getAttribute("task") == null)
             model.addAttribute("task", new Task());

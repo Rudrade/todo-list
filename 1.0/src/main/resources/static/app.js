@@ -54,3 +54,9 @@ function openTask(task) {
         document.getElementById("task-form").appendChild(inputNode);
     }
 }
+
+function search() {
+    const text = document.getElementById("search").value;
+
+    window.location.href = '/?filter=search&search='+text;
+}

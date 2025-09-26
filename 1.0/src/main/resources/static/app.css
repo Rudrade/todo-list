@@ -9,7 +9,7 @@ body {
 }
 
 #task {
-    background-color: #e9e7e2;
+    background-color: #f3f3f3;
     position: absolute;
     width: 30%;
     height: 50%;
@@ -19,13 +19,56 @@ body {
 }
 
 #task input {
-    background-color: #e9e7e2;
+    background-color: #f3f3f3;
 }
 
 #task textarea {
-    background-color: #e9e7e2;
+    background-color: #f3f3f3;
 }
 
 a {
     color: inherit;
+}
+
+#menu {
+    background-color: #f3f3f3;
+    position: absolute;
+    height: 50%;
+    width: 30%;
+    padding: 1%;
+    top: 40;
+    border-radius: 10px;
+}
+
+button {
+    font-weight: bold !important;
+}
+
+#task-delete {
+    font-weight: bold;
+    color: black;
+}
+
+#menu ul {
+    list-style-type: none;
+}
+
+#menu ul li {
+    padding-left: 3%;
+}
+
+#menu ul svg {
+    margin-right: 1%;
+}
+
+#menu a {
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+}
+
+.menu-selected {
+    font-weight: bold;
+    background-color: #cfceceb2;
+    border-radius: 5px;
 }
