@@ -14,7 +14,7 @@ public class AjaxController {
     private TaskService taskService;
 
     @PutMapping("/complete/{id}")
-    public void changeCompletion(@PathVariable("id") String id) {
+    public void changeCompletion(@PathVariable String id) {
         taskService.changeTaskCompletion(id);
     }
 

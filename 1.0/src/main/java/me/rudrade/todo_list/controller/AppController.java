@@ -25,7 +25,7 @@ public class AppController {
 
     @GetMapping("/")
     public String listTasks(Model model,
-        @RequestParam(name = "filter", required = false) TaskListFilter filter,
+        @RequestParam(required = false) TaskListFilter filter,
         @RequestParam(name = "search", required = false) String searchText) {
         
         model.addAttribute("tasks", taskService.getAll(filter, searchText));
@@ -46,7 +46,7 @@ public class AppController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteTask(@PathVariable("id") String id) {
+    public String deleteTask(@PathVariable String id) {
         taskService.delete(id);
 
         return "redirect:/";
@@ -54,7 +54,7 @@ public class AppController {
 
     @GetMapping("/detail/{id}")
     @ResponseBody
-    public Task getTask(@PathVariable("id") String id) {
+    public Task getTask(@PathVariable String id) {
         return taskService.getById(id);
     }
 
