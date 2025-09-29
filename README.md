@@ -1,6 +1,6 @@
 # todo-list
 
-Project made to learn and improve in certain Java tecnologies.
+Project made to learn and improve in certain tecnologies.
 
 # 1.0
 
